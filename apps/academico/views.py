@@ -85,7 +85,7 @@ def docentes_eliminar(request, id):
 #-- Sistemas de Evaluación -------------------------------------------------------------------------------------------
 def sis_evaluacion_listar(request):
 	#sis_evals = SistemaEvaluacion.objects.all()
-	sis_eval_paginados = Paginator(SistemaEvaluacion.objects.all(), 5)  # Paginator
+	sis_eval_paginados = Paginator(SistemaEvaluacion.objects.all(), 7)  # Paginator
 	page = request.GET.get('page', 1)
 	sis_evals = sis_eval_paginados.get_page(page)  # page_obj
 	return render(request, 'academico/sis_evaluacion_listar.html', {'data':sis_evals, 'paginator':sis_eval_paginados})
@@ -120,7 +120,7 @@ def sis_evaluacion_eliminar(request, id):
 
 #-- Cursos -----------------------------------------------------------------------------------------------------------
 def cursos_listar(request):
-	cursos_paginados = Paginator(Cursos.objects.all(), 5)
+	cursos_paginados = Paginator(Cursos.objects.all(), 7)
 	page = request.GET.get('page', 1)
 	cursos = cursos_paginados.get_page(page)
 	return render(request, 'academico/cursos_listar.html', {'data':cursos, 'paginator':cursos_paginados})
@@ -155,7 +155,7 @@ def cursos_eliminar(request, id):
 
 #-- Ciclos Académicos ------------------------------------------------------------------------------------------------
 def ciclos_listar(request):
-	ciclos_paginados = Paginator(CiclosAcademicos.objects.all(), 5)
+	ciclos_paginados = Paginator(CiclosAcademicos.objects.all(), 7)
 	page = request.GET.get('page', 1)
 	ciclos = ciclos_paginados.get_page(page)
 	return render(request, 'academico/ciclos_listar.html', {'data':ciclos, 'paginator':ciclos_paginados})
