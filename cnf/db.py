@@ -1,5 +1,6 @@
 # Archivo de configuración de Bases de Datos.
 
+from decouple import config
 
 # Configuración para SQLite:
 '''SQLITE = {
@@ -26,13 +27,25 @@ POSTGRESQL = {
 # 	BD: admirapl_academico
 #	Usuario: admirapl_academico_admin
 #	Clave: AdmiraPlus2015
-MySQL = {
+MySQL_AdmiraPlus = {
     'default': {
         'ENGINE': 'django.db.backends.mysql', 
+        'HOST': 'srvadmirape',
+        'PORT': '3306',
         'NAME': 'academico',
         'USER': 'root',
         'PASSWORD': 'AdmiraPlus2015',
-        'HOST': 'srvadmirape',
-        'PORT': '3306',
+    }
+}
+MySQL = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql', 
+        'HOST': config('HOST'),
+		'PORT': config('PORT'),
+		'NAME': config('NAME'),
+        'USER': config('USER'),
+        'PASSWORD': config('PASSWORD'),
+        
+        
     }
 }
