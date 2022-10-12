@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+
+<ul class="nav nav-tabs">
+	<li class="nav-item">
+		<a class="nav-link active" aria-current="page" href="{% url 'inicio' %}">Inicio</a>
+	</li>
+	<li class="nav-item dropdown">
+		<a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Archivos</a>
+		<ul class="dropdown-menu">
+			<li><a class="dropdown-item" href="{% url 'alumnos_listar' %}">Alumnos</a></li>
+			<li><a class="dropdown-item" href="{% url 'docentes_listar' %}">Docentes</a></li>
+			<li><a class="dropdown-item" href="{% url 'sis_evaluacion_listar' %}">Sistemas de Evaluacion</a></li>
+			<li><a class="dropdown-item" href="{% url 'cursos_listar' %}">Cursos</a></li>
+			<li><a class="dropdown-item" href="{% url 'ciclos_listar' %}">Ciclos Academicos</a></li>
+		</ul>
+	</li>
+	<li class="nav-item">
+		<a class="nav-link" href="#">Prematrícula</a>
+	</li>
+	<li class="nav-item">
+		<a class="nav-link">Opción</a>
+	</li>
+	<li class="nav-item">
+		<a class="nav-link">Salir</a>
+	</li>
+</ul>
