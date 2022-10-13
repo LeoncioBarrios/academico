@@ -45,7 +45,5 @@ MySQL = {
 		'NAME': config('NAME'),
         'USER': config('USER'),
         'PASSWORD': config('PASSWORD'),
-        
-        
     }
 }
