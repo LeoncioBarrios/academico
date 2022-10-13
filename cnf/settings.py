@@ -30,7 +30,7 @@ SECRET_KEY = config('SECRET_KEY')
 DEBUG = config('DEBUG')
 
 ALLOWED_HOSTS = ['leonciobarrios.pythonanywhere.com', 
-				 'neuraldevs.pythonanywhere.com'
+				 'neuraldevs.pythonanywhere.com',
 				 'localhost', 
 				 '127.0.0.1',
 				 'admirape']
