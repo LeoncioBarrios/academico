@@ -1,4 +1,4 @@
-"""academico URL Configuration
+"""academico URL Configuration (URLs Comunes o Generales)
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/4.1/topics/http/urls/
@@ -22,9 +22,9 @@ urlpatterns = [
     path('admin/', admin.site.urls),
 	
     path('', views.inicio, name='inicio' ),
-	path('registrar_usuario/', views.registrar_usuario, name='registrar_usuario'),
-	path('iniciar_sesion/', views.iniciar_sesion, name='iniciar_sesion'),
-	path('cerrar_sesion/', views.cerrar_sesion, name='cerrar_sesion'),
+	path('usuario/registrar/', views.registrar_usuario, name='registrar_usuario'),
+	path('sesion/iniciar/', views.iniciar_sesion, name='iniciar_sesion'),
+	path('sesion/cerrar/', views.cerrar_sesion, name='cerrar_sesion'),
 	
 	
     path('xxx_registrar_usuario/', views.xxx_registrar_usuario),

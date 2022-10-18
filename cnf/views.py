@@ -1,10 +1,10 @@
+# Vistas Comunes o Generales
+
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
-
-#from .views import inicio, registrar_usuario, iniciar_sesion, cerrar_sesion
 
 from datetime import date
 
@@ -49,7 +49,7 @@ def iniciar_sesion(request):
         if user is None:
             return render(request, 'iniciar_sesion.html', {
                 'form': AuthenticationForm,
-                'error': 'Usuario/Clave incorrectos o no existen'
+                'error': 'Usuario/Clave incorrecto o no existe el usuario.'
             })
         else:
             login(request, user)

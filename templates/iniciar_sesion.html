@@ -9,6 +9,7 @@ Iniciar Sessión
 
 <!-- Block Herader -->
 {% block header %}
+{% include 'navbar.html' %}
 {% endblock %}
 
 <!-- Block Content -->
@@ -19,24 +20,26 @@ Iniciar Sessión
 		<div class="card-body">
 			<h3 class="card-title text-center">Inicio de sesión</h3>
 			<div class="card-text">
-				<!-- <div class="alert alert-danger alert-dismissible fade show" role="alert">Incorrect username or password.</div> -->
+				{% if error %}
+				<div class="alert alert-danger alert-dismissible fade show" role="alert">{{ error }}</div>
+				{% endif %}
 				<form method="post">
 					{% csrf_token %}
 					<!-- to error: add class "has-danger" -->
 					<div class="form-group">
 						<label for="usuario">Usuario</label>
-						<input type="text" class="form-control form-control-sm" id="usuario" name="username">
+						<input type="text" class="form-control form-control-sm" id="usuario" name="username" tabindex="1">
 					</div>
 					<div class="form-group">
 						<label for="password">Contraseña</label>
 						<a href="#" style="float:right;font-size:12px;">Olvidó la contraseña?</a>
-						<input type="password" class="form-control form-control-sm" id="password" name="password">
+						<input type="password" class="form-control form-control-sm" id="password" name="password" tabindex="2">
 					</div>
 					
-					<button type="submit" class="btn btn-primary btn-block">Iniciar sesión</button>
+					<button type="submit" class="btn btn-primary btn-block" tabindex="3">Iniciar sesión</button>
 					
 					<div class="sign-up">
-						No estás registrado? <a href="#">Regístrate</a>
+						No estás registrado? <a href="{%  url 'registrar_usuario' %}">Regístrate</a>
 					</div>
 				</form>
 			</div>
@@ -49,16 +52,3 @@ Iniciar Sessión
 
 {% block footer %}
 {% endblock %}
-
-<!-- 
-<div class="container">
-	<form method="post" class="mt-5">
-		{% csrf_token %}
-		{{ form.as_p }}
-		<button>
-			Iniciar Sessión
-		</button>
-	</form>
-</div>
-
- -->
