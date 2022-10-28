@@ -57,7 +57,6 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-#ROOT_URLCONF = 'academico.urls'
 ROOT_URLCONF = 'cnf.urls'
 
 TEMPLATES = [
@@ -122,8 +121,25 @@ USE_TZ = True
 STATIC_URL = 'static/'
 
 LOGIN_URL = '/sesion/iniciar'
+LOGOUT_REDIRECT_URL = '/sesion/iniciar'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+# Datos para la configuración del correo electrónico
+
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_HOST = "smtp.gmail.com"
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_HOST_USER = config('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
+
+# Para evitar el "secuestro" de la sesión de usuario por JavaScript desde el front.
+SESSION_COOKIE_HTTPONLY = True
+
+# La sesión del usuario se cierra al cerrar el navegador.
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True

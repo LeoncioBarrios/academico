@@ -1,8 +1,9 @@
-from cProfile import label
 from dataclasses import fields
 from django import forms
 from .models import Alumnos, CiclosAcademicos, Docentes, SistemaEvaluacion, Cursos, CiclosAcademicos
 
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User
 
 # -- Alumnos ----------------------------------------------------------------------------------------------------------
 class AlumnosForm(forms.ModelForm):
@@ -126,3 +127,21 @@ class CiclosForm(forms.ModelForm):
     	    'ciclo': forms.Select(attrs={'class': 'form-control form-control-sm'}),
 	    	'tipo': forms.Select(attrs={'class': 'form-control form-control-sm'})
         }
+
+
+# -- User -------------------------------------------------------------------------------------------------------------
+class RegistroForm(UserCreationForm):
+	
+	email = forms.EmailField(required=True)
+	
+	class Meta:
+		model = User
+		fields = [
+			'username',
+			'first_name',
+			'last_name',
+			'email',
+			'password1',
+			'password2'
+		]
+	

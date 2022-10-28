@@ -16,6 +16,10 @@ Including another URLconf
 from django.contrib import admin
 
 from django.urls import path, include
+
+from django.contrib.auth.views import PasswordResetView, PasswordResetDoneView, PasswordResetConfirmView, \
+	PasswordResetCompleteView
+
 from . import views
 
 urlpatterns = [
@@ -26,7 +30,14 @@ urlpatterns = [
 	path('sesion/iniciar/', views.iniciar_sesion, name='iniciar_sesion'),
 	path('sesion/cerrar/', views.cerrar_sesion, name='cerrar_sesion'),
 	
+	#	path('registro/', views.registro, name='registro'),
+	
+	path('password/reset/', PasswordResetView.as_view(template_name='password-reset.html'), name='password_reset'),
+	path('password/reset/done/', PasswordResetDoneView.as_view(template_name="password-reset-done.html"), name='password_reset_done'),
+	path('password/reset/confirm/<uidb64>/<token>', PasswordResetConfirmView.as_view(template_name='password-confirm.html'), name='password_reset_confirm'),
+	path('password/reset/complete/', PasswordResetCompleteView.as_view(template_name="password-reset-complete.html"), name='password_reset_complete'),
 	
     path('xxx_registrar_usuario/', views.xxx_registrar_usuario),
+	
     path('', include('apps.academico.urls'))
 ]
