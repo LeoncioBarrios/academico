@@ -75,7 +75,6 @@ TEMPLATES = [
     },
 ]
 
-#WSGI_APPLICATION = 'academico.wsgi.application'
 WSGI_APPLICATION = 'cnf.wsgi.application'
 
 
